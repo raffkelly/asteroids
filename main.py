@@ -42,8 +42,9 @@ def main():
             thing.update(dt)
         for asteroid in asteroids:
             if asteroid.collision_check(player):
-                # final_score_surface = font.render(f"Final Score: {score}", False, "white")
-                screen.blit("black", (0, 0))
+                final_score_surface = font.render(f"Final Score: {score}", False, "white")
+                print("black")
+                screen.fill("black")
                 screen.blit(final_score_surface, (0, 0))
                 while True:
                     endgame = pygame.key.get_pressed()
