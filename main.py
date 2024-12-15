@@ -24,7 +24,7 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
 
-    background = pygame.image.load("space.jpg").convert_alpha()
+    background = pygame.image.load("space.jpg").convert()
 
 
     while True:
