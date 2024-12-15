@@ -42,9 +42,13 @@ def main():
             thing.update(dt)
         for asteroid in asteroids:
             if asteroid.collision_check(player):
-                print("Game over!")
-                print(f"Final Score: {score}")
-                return
+                # final_score_surface = font.render(f"Final Score: {score}", False, "white")
+                screen.blit("black", (0, 0))
+                screen.blit(final_score_surface, (0, 0))
+                while True:
+                    endgame = pygame.key.get_pressed()
+                    if endgame[pygame.K_SPACE]:
+                        return
             for shot in shots:
                 if asteroid.collision_check(shot):
                     asteroid.split()
@@ -55,6 +59,6 @@ def main():
         pygame.display.flip()
         dt = clock.tick(60)/1000
 
-        
+
 if __name__ == "__main__":
     main()
