@@ -1,4 +1,5 @@
 import pygame
+import sys
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -44,12 +45,14 @@ def main():
             if asteroid.collision_check(player):
                 final_score_surface = font.render(f"Final Score: {score}", False, "white")                
                 screen.fill("black")
-                screen.blit(final_score_surface, (0, 0))
+                screen.blit(final_score_surface, (500, 200))
                 pygame.display.flip()
                 while True:
+                    pygame.event.pump()
                     endgame = pygame.key.get_pressed()
-                    if endgame[pygame.K_SPACE]:
-                        return
+                    if endgame[pygame.K_ESCAPE]:
+                        pygame.quit()
+                        sys.exit()
             for shot in shots:
                 if asteroid.collision_check(shot):
                     asteroid.split()
